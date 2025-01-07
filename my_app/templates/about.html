@@ -1,0 +1,17 @@
+{% extends "base.html"%}
+
+{% block title %} About Us {% endblock %}
+
+{% block content %} 
+<div class="container mx-auto">
+    <div class="grid grid-cols-2 gap-4">
+        <div>
+            <h1 class="mt-5 mb-5 text-4xl font-bold text-red-500">About Us</h1>
+            <p class="mt-5 mb-5 text-xl font-bold text-red-500">This is my About Us Page</p>
+            <h3 class="mt-5 mb-5 text-3xl font-bold text-red-500">{{message}}</h3>
+        </div>
+    
+    </div>
+</div>
+
+{% endblock %}
