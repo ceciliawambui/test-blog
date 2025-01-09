@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import dj_database_url
+from decouple import config
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,10 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-bwstfnf=9(u4=4rw3gp6-9y1zp2pt&=hz^fz6cpv1*r(rzty5*'
+# SECRET_KEY = 'django-insecure-bwstfnf=9(u4=4rw3gp6-9y1zp2pt&=hz^fz6cpv1*r(rzty5*'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -81,19 +84,19 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'tester_db',
-#         'USER': 'tester_user',
-#         'PASSWORD': '123456',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-#     }
-# }
 DATABASES = {
-    'default':dj_database_url.parse("postgresql://my_blog_db_y95z_user:KTCsHkowdz42wCnFlLBke0h2Mc3kkxCt@dpg-ctn98kpopnds73flbd4g-a.oregon-postgres.render.com/my_blog_db_y95z")
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'tester_db',
+        'USER': 'tester_user',
+        'PASSWORD': '123456',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
 }
+# DATABASES = {
+#     'default':dj_database_url.parse("postgresql://my_blog_db_y95z_user:KTCsHkowdz42wCnFlLBke0h2Mc3kkxCt@dpg-ctn98kpopnds73flbd4g-a.oregon-postgres.render.com/my_blog_db_y95z")
+# }
 
 
 
